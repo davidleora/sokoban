@@ -18,7 +18,7 @@ class SokobanEnv:
         self.level_idx = level_idx
         self.original_level = None
         self.level = None
-        self.max_steps = 200  # Prevent infinite episodes
+        self.max_steps = 500  # Prevent infinite episodes
         self.step_count = 0
         
         # Define symbols
@@ -269,8 +269,8 @@ class DQNAgent:
         self.action_size = action_size
         self.memory = deque(maxlen=10000)
         self.epsilon = 1.0  # Exploration rate
-        self.epsilon_min = 0.01
-        self.epsilon_decay = 0.995
+        self.epsilon_min = 0.05
+        self.epsilon_decay = 0.9995
         self.learning_rate = learning_rate
         self.batch_size = 32
         self.target_update_freq = 100
@@ -368,8 +368,6 @@ def train_agent(episodes=1000, level_idx=0):
         # Check if level was solved
         if env._is_complete():
             solved_episodes.append(episode)
-            print(f"Episode {episode}: Solved! Total reward: {total_reward:.2f}, Steps: {steps}")
-        
         # Train the agent
         agent.replay()
         
@@ -423,7 +421,7 @@ if __name__ == "__main__":
     print("Training DQN agent on Sokoban...")
     
     # Train the agent
-    agent, scores, solved_episodes = train_agent(episodes=2000, level_idx=0)
+    agent, scores, solved_episodes = train_agent(episodes=10000, level_idx=0)
     
     # Plot training progress
     plt.figure(figsize=(12, 4))

@@ -57,7 +57,7 @@ python sokoban_rl.py
 ```
 
 This will:
-- Train for 2000 episodes
+- Train for 10000 episodes
 - Save the trained model as `sokoban_dqn_model.pth`
 - Show training progress plots
 - Test the final agent
@@ -85,11 +85,6 @@ python visualize_agent.py manual
 - Updated every 100 episodes
 - Reduces moving target problem
 
-### Epsilon-Greedy Exploration
-- Starts with 100% exploration (epsilon=1.0)
-- Decays to 1% exploration (epsilon=0.01)
-- Balances exploration vs exploitation
-
 ### Adaptive Reward Shaping
 - Immediate feedback for good/bad actions
 - Sparse completion rewards
@@ -102,7 +97,7 @@ python visualize_agent.py manual
 - **Batch Size**: 32
 - **Memory Size**: 10,000 experiences
 - **Discount Factor**: 0.99
-- **Epsilon Decay**: 0.995
+- **Epsilon Decay**: 0.9995
 
 ### Common Issues
 1. **Agent gets stuck**: Increase exploration or add negative rewards for repetitive actions
@@ -114,33 +109,6 @@ Watch for these indicators:
 - **Increasing average scores**: Agent is learning
 - **Solved episodes**: Track completion rate
 - **Epsilon decay**: Ensure proper exploration schedule
-
-## Extending the Implementation
-
-### Multi-Level Training
-Train on multiple levels by modifying the training loop:
-```python
-# Train on levels 0-9
-for level in range(10):
-    agent, scores, solved = train_agent(episodes=1000, level_idx=level)
-```
-
-### Advanced Techniques
-Consider implementing:
-- **Prioritized Experience Replay**: Focus on important experiences
-- **Double DQN**: Reduce overestimation bias
-- **Dueling DQN**: Separate value and advantage estimation
-- **Rainbow DQN**: Combine multiple improvements
-
-### Custom Reward Functions
-Experiment with different reward structures:
-```python
-def custom_reward(env, action, moved):
-    # Distance-based rewards
-    # Deadlock detection
-    # Progress tracking
-    pass
-```
 
 ## Performance Expectations
 
@@ -154,18 +122,6 @@ def custom_reward(env, action, moved):
 - **Simple levels (0-10)**: Usually solvable within 2000 episodes
 - **Medium levels**: May require 5000+ episodes
 - **Complex levels**: Might need curriculum learning
-
-## Troubleshooting
-
-### Common Errors
-1. **CUDA out of memory**: Reduce batch size or use CPU
-2. **Import errors**: Ensure all dependencies are installed
-3. **Visualization issues**: Check pygame installation
-
-### Performance Issues
-1. **Slow training**: Use GPU if available
-2. **Memory usage**: Reduce replay buffer size
-3. **Convergence problems**: Adjust hyperparameters
 
 ## Files Description
 
@@ -182,16 +138,3 @@ def custom_reward(env, action, moved):
 3. **Hierarchical RL**: Break down complex actions
 4. **Multi-Agent**: Train multiple agents simultaneously
 5. **Imitation Learning**: Learn from human demonstrations
-
-## Contributing
-
-Feel free to experiment with:
-- Different network architectures
-- Alternative RL algorithms (PPO, A3C, etc.)
-- Improved reward functions
-- Better state representations
-- Advanced training techniques
-
-## License
-
-This implementation is for educational purposes. Feel free to modify and extend for your own projects. 

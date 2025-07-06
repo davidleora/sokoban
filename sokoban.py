@@ -1385,8 +1385,13 @@ levels = [
 current_level = 0
 
 def load_level():
-    global level
+    global level, WIDTH, HEIGHT
     level = copy.deepcopy(levels[current_level])
+    cell_size = 23
+    level_width = max(len(row) for row in level)
+    level_height = len(level)
+    WIDTH = level_width * cell_size
+    HEIGHT = level_height * cell_size
 
 load_level()
 
@@ -1514,6 +1519,3 @@ def draw():
                     (x * cell_size, y * cell_size),
                     color=(255, 255, 255)
                 )
-
-WIDTH = 460
-HEIGHT = 460
