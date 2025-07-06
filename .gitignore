@@ -1,0 +1,99 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+sokoban_rl_env/
+
+# PyTorch models and training artifacts
+*.pth
+*.pt
+*.pkl
+*.pickle
+
+# Training logs and results
+training_logs/
+results/
+logs/
+checkpoints/
+models/
+
+# Matplotlib/plotting outputs
+*.png
+*.jpg
+*.jpeg
+*.pdf
+*.svg
+agent_evaluation_results.png
+training_method_comparison.png
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# PyGame
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Data files (if you add large datasets)
+data/
+datasets/
+*.zip
+*.tar.gz
+
+# Experiment tracking
+wandb/
+mlruns/
+.mlflow/
+
+# Documentation builds
+docs/_build/
