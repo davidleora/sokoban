@@ -8,7 +8,7 @@ from torch.distributions import Categorical
 import matplotlib.pyplot as plt
 
 # Import the levels from the original sokoban.py
-from sokoban import levels
+from padded_levels import levels
 
 class SokobanEnv:
     """Sokoban environment for PPO training"""
